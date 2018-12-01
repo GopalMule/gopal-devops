@@ -1,0 +1,17 @@
+---
+- hosts: all  #group name from the inventory
+  gather_fact:no
+  become:yes
+
+  vars:
+    remote_dir:"/files"
+
+  tasks
+
+   -name:get the list of all file names inside the directory
+     shell: "mv /tmp/{{job_id}}/collectswupgradelogs/{{item.1}} {{remote_dir}}/{{item.1}}zip"
+
+   become:yes
+   become_sudo:yes
+   register: rename_files_zip
+   with_indexed_items: "{{files_to_rename.stdout_lines}}"

@@ -1,0 +1,17 @@
+- hosts: all
+  sudo: true
+  tasks:
+    - name: Check if process running
+      action: chkprocess process=httpd
+      register: process
+      #become: yes
+
+    - debug: msg="{{ process.msg }}"
+
+    - name: Check if process running
+      action: chkprocess process=nginx
+      register: process
+      #become: yes
+
+    - debug: msg="{{ process.msg }}"
+

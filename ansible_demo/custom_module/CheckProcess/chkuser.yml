@@ -1,0 +1,9 @@
+- hosts: all
+
+  tasks:
+    - name: Check if user exists
+      action: chkuser username=ec2-user
+      register: user
+      become: yes
+
+    - debug: msg="{{ user.msg }}"

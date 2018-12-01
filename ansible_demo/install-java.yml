@@ -1,0 +1,14 @@
+- hosts: all
+  sudo: true
+
+  vars:
+   - MyMessage: "Welcome to Ansible World"
+   - DBMessage: "Hello to MongoDB"
+
+  tasks:
+   - name: Install tomcat
+     yum: 
+      name: tomcat
+      state: present        
+  
+

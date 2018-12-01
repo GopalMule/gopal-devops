@@ -1,0 +1,12 @@
+--- 
+- 
+  hosts: all
+  var
+  tasks: 
+    - 
+      service: 
+        become: true
+        become_method: sudo
+        name: nginx
+        started: started
+

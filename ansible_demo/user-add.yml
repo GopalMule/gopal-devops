@@ -1,0 +1,12 @@
+---
+- hosts: all  #group name from the inventory
+  sudo: true
+  
+  tasks:
+    - name: Add a list of users
+      user: name={{ item }} state=present
+      with_items:
+        - gopal
+        - pradnya
+        - ganesh
+...
